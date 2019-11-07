@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="shortcut icon" href="imagens/iconacens.png">
+    <link rel="stylesheet" href="style.css">
+    <title>Sistema de Cadastro - Acens</title>
+</head>
+
+<body>
+    <header id="topo">
+        <div class="logo"><img src="imagens/Cópia de Cópia de LogoCompleta.png" alt="Logo Acens"></div>
+        <div class="usua"><img src="imagens/lucas.jpg" alt="usuario"></div>
+        <p>Lucas Ivisson</p>
+    </header>
+    <section>
+        <h1>Cadastro
+            <span class="other"> de Projetos</span>
+        </h1>
+        <div id="tab1">
+            <table>
+                <form id="formulario">
+                    <p class="txtf">Projeto</p>
+                    <input id="projeto" type="text" placeholder="Digite o nome do projeto" name="projeto">
+                    <p class="txtf">Stacks</p>
+                    <input id="stacks" type="text" placeholder="Digite as stacks do projeto" name="stacks">
+                    <p class="txtf">Valor</p>
+                    <input id="valor" type="text" placeholder="Digite o valor do projeto" name="valor">
+                    <p class="txtf">Dias Úteis</p>
+                    <input id="dias" type="text" placeholder="Digite os dias úteis do projeto" name="dias">
+                    <p class="txtf">Desenvolvedores</p>
+                    <input id="devs" type="text" placeholder="Digite a quantidade de devs do projeto" name="devs">
+                    <p><input id="botao" type="button" value="Cadastrar" onclick="adicionar()"></p>
+                </form>
+            </table>
+        </div>
+        <div id="tab2">
+            <table class="cadastrado">
+                <tr>
+                    <td class="tab1">Projeto</td>
+                    <td class="tab2">Stacks</td>
+                    <td class="tab3">Valor(R$)</td>
+                    <td class="tab4">Dias Úteis</td>
+                    <td class="tab5">Desenvolvedores</td>
+                </tr>
+            </table>
+        </div>
+    </section>
+    <footer id="footer">
+        <div class="texto">
+            &copy; Lucas Ivisson
+        </div>
+    </footer>
+    <script src="script.js"></script>
+</body>
+
+</html>

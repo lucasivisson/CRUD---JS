@@ -1,0 +1,98 @@
+body{
+    margin: 0;
+    padding: 0;
+    background: rgb(66, 66, 192);
+}
+#topo{
+    position: relative;
+    background: white;
+    width: 100%;
+    height: 70px;
+    margin: 0;
+}
+.logo img{
+    float: left;
+    position: relative;
+    width: 165px;
+    height: 60px;
+    margin-left: 2%;
+    margin-top: 0.3%;
+    padding: 50;
+}
+.usua img{
+    position: relative;
+    float: right;
+    width: 60px;
+    height: 60px;
+    border-radius: 100%;
+    margin-right: 2%;
+    margin-top: 0.3%;
+}
+#topo p{
+    float: right;
+    margin-right: 1%;
+    margin-top: 2%;
+    font: Normal 12pt Arial;
+}
+h1{
+    font-family: 'Montserrat', Helvetica, Arial, sans-serif;
+    text-transform: uppercase;
+    font-size: 36px;
+    text-align: center;
+    color: white;
+    font-weight: 700 !important;
+}
+.other{
+    color: rgb(29, 26, 68);
+}
+#footer{
+    background: white;
+    position: absolute;
+    width: 100%;
+    padding: 20px 0;
+}
+.texto{
+    text-align: center;
+    font: Italic 16pt Arial;
+    color: blue;
+}
+#tab1{
+    margin-left: 2%;
+    width: 50%;
+    display: inline-block;
+}
+#formulario{
+    float: left;
+    position: relative;
+}
+.txtf{
+    color: white;
+    font-family: 'Montserrat', Helvetica, Arial, sans-serif;
+    font-size: 20px;
+    margin-bottom: 5px;
+    font-weight: 500;
+}
+#projeto, #stacks, #valor, #dias, #devs{
+    width: 60%;
+    height: 35px;
+    border-radius: 8px;
+    box-shadow: 4px 4px 10px black;
+    font-size: 16px;
+}
+#botao{
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-size: 16px;
+    font-family: 'Montserrat', Helvetica, Arial, sans-serif;
+}
+#botao:hover{
+    background: rgb(166, 152, 248);
+}
+::-webkit-input-placeholder {
+    font-size: 16px;
+    margin-left: 50px;
+}
+#tab2{
+    float: right;
+    position: relative;
+}
