@@ -9,6 +9,7 @@ function adicionar(){
         window.alert('Para cadastrar é necessário que todos os campos sejam preenchidos!')
     }else{
         
+        
     }
 
 }
