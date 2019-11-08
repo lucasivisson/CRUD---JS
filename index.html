@@ -33,27 +33,38 @@
                     <input id="dias" type="text" placeholder="Digite os dias úteis do projeto" name="dias">
                     <p class="txtf">Desenvolvedores</p>
                     <input id="devs" type="text" placeholder="Digite a quantidade de devs do projeto" name="devs">
-                    <p><input id="botao" type="button" value="Cadastrar" onclick="adicionar()"></p>
+                    <p><input id="botao" type="button" value="Cadastrar" onclick="adicionar()">
+                    </p>
                 </form>
             </table>
         </div>
         <div id="tab2">
             <table class="cadastrado">
-                <tr>
-                    <td class="tab1">Projeto</td>
-                    <td class="tab2">Stacks</td>
-                    <td class="tab3">Valor(R$)</td>
-                    <td class="tab4">Dias Úteis</td>
-                    <td class="tab5">Desenvolvedores</td>
-                </tr>
+                <thead>
+                    <tr>
+                        <td class="tab1">
+                            <p>Projeto</p>
+                        </td>
+                        <td class="tab2">
+                            <p>Stacks</p>
+                        </td>
+                        <td class="tab3">
+                            <p>Valor(R$)</p>
+                        </td>
+                        <td class="tab4">
+                            <p>Dias Úteis</p>
+                        </td>
+                        <td class="tab5">
+                            <p>Desenvolvedores</p>
+                        </td>
+                    </tr>
+                </thead>
+                <tbody id="infos">
+                    
+                </tbody>
             </table>
         </div>
     </section>
-    <footer id="footer">
-        <div class="texto">
-            &copy; Lucas Ivisson
-        </div>
-    </footer>
     <script src="script.js"></script>
 </body>
 
