@@ -76,25 +76,61 @@ h1{
     font-size: 16px;
     font-family: 'Montserrat', Helvetica, Arial, sans-serif;
     border: none;
+    background: rgb(0, 0, 53);
+    color: white;
+    text-transform: uppercase;
 }
 #botao:hover{
-    background: rgb(0, 0, 53);
+    background: rgb(98, 98, 255);
     color: white;
 }
 ::-webkit-input-placeholder {
     font-size: 16px;
     margin-left: 50px;
 }
+
+td:nth-child(6n) {
+    flex-direction: column;
+    align-items: center;
+}
+#botao1,
+#botao2 {
+    padding: 8px 15px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    width: 100%;
+    border-radius: 8px;
+    font-size: 16px;
+    font-family: 'Montserrat',
+    Helvetica,
+    Arial,
+    sans-serif;
+    border: none;
+    background: rgb(0, 0, 53);
+    color: white;
+    display: flex;
+    text-transform: uppercase;
+    font-weight: 600!important;
+}
+#botao1 {
+    padding-left: 22px;
+    background: rgb(255, 189, 7);
+    color: black;
+}
+#botao2{
+    background: rgb(253, 61, 61);
+    color: black;
+}
 #tab2{
     float: right;
     position: relative;
     margin-top: 45px;
-    margin-right: 150px;
+    margin-right: 50px;
 }
 table{
     background: white;
     color: rgb(29, 26, 68);
-    border-radius: 8px;
+
     border-collapse: collapse;
 }
 tr, td{
@@ -107,4 +143,10 @@ tr p, td p{
     padding: 0px 20px;
     text-align: center;
     border-collapse: collapse;
+}
+.tab1, .tab2, .tab3, .tab4, .tab5{
+    font-family: 'Montserrat', Helvetica, Arial, sans-serif;
+    font-size: 16px;
+    margin-bottom: 5px;
+    font-weight: 600;
 }

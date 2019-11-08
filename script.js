@@ -1,24 +1,77 @@
+let projetos = [];
+function coletaInfo() {
+    let nome = window.document.getElementById('projeto').value;
+    let stacks = window.document.getElementById('stacks').value;
+    let valor = window.document.getElementById('valor').value;
+    let dias = window.document.getElementById('dias').value;
+    let devs = window.document.getElementById('devs').value;
+    return {
+        nome,
+        stacks,
+        valor,
+        dias,
+        devs,
+    };
+}
+function verificar(projeto) {
+    if (
+        projeto.nome == '' ||
+        projeto.stacks == '' ||
+        projeto.valor == '' ||
+        projeto.dias == '' ||
+        projeto.devs == '') {
+        return true;
+    } else {
+        return false;
+    }
+}
+function igual(target) {
+    return false;
+//     if(projetos.length > 1) {
+//         projetos.filter(projeto => {
+//             if(projeto.name === target.name) {
+//                 return true;
+//             } else {
+//                 return false;
+//             }
+//         });
+//     }
+}
 function adicionar() {
-    var projeto = window.document.getElementById('projeto').value;
-    var stacks = window.document.getElementById('stacks').value;
-    var valor = window.document.getElementById('valor').value;
-    var dias = window.document.getElementById('dias').value;
-    var devs = window.document.getElementById('devs').value;
-    var infos = window.document.getElementById('infos');
-    if (projeto.length == 0 || stacks.length == 0 || valor.length == 0 || dias.length == 0 || devs.length == 0) {
+    let projeto = coletaInfo();
+    if (verificar(projeto) || igual(projeto)){
         window.alert('Para cadastrar é necessário que todos os campos sejam preenchidos!')
     } else {
-        var inserir = infos.insertRow();
-        var cel1 = inserir.insertCell();
-        var cel2 = inserir.insertCell();
-        var cel3 = inserir.insertCell();
-        var cel4 = inserir.insertCell();
-        var cel5 = inserir.insertCell();
+        projetos.push(projeto);
 
-        cel1.innerHTML = `${projeto}`;
-        cel2.innerHTML = `${stacks}`;
-        cel3.innerHTML = `${valor}`;
-        cel4.innerHTML = `${dias}`;
-        cel5.innerHTML = `${devs}`;
+        let btn1 = document.createElement('input');
+        btn1.setAttribute('id', 'botao1');
+        btn1.setAttribute('type', 'button');
+        btn1.setAttribute('value', 'editar');
+        btn1.setAttribute('onclick', 'editar()');
+        let btn2 = document.createElement('input');
+        btn2.setAttribute('id', 'botao2');
+        btn2.setAttribute('type', 'button');
+        btn2.setAttribute('value', 'excluir');
+        btn2.setAttribute('onclick', 'excluir()');
+
+        let inserir = infos.insertRow();
+        let cel1 = inserir.insertCell();
+        let cel2 = inserir.insertCell();
+        let cel3 = inserir.insertCell();
+        let cel4 = inserir.insertCell();
+        let cel5 = inserir.insertCell();
+        let cel6 = inserir.insertCell();
+        
+        cel1.innerHTML = `${projeto.nome}`;
+        cel2.innerHTML = `${projeto.stacks}`;
+        cel3.innerHTML = `${projeto.valor}`;
+        cel4.innerHTML = `${projeto.dias}`;
+        cel5.innerHTML = `${projeto.devs}`;
+        cel6.appendChild(btn1);
+        cel6.appendChild(btn2);
     }
+}
+function editar() {
+    
 }
