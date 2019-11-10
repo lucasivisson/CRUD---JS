@@ -28,11 +28,11 @@
                     <p class="txtf">Stacks</p>
                     <input id="stacks" type="text" placeholder="Digite as stacks do projeto" name="stacks">
                     <p class="txtf">Valor</p>
-                    <input id="valor" type="text" placeholder="Digite o valor do projeto" name="valor">
+                    <input id="valor" type="number" placeholder="Digite o valor do projeto" name="valor">
                     <p class="txtf">Dias Úteis</p>
-                    <input id="dias" type="text" placeholder="Digite os dias úteis do projeto" name="dias">
+                    <input id="dias" type="number" placeholder="Digite os dias úteis do projeto" name="dias">
                     <p class="txtf">Desenvolvedores</p>
-                    <input id="devs" type="text" placeholder="Digite a quantidade de devs do projeto" name="devs">
+                    <input id="devs" type="text" placeholder="Digite o nome dos devs do projeto" name="devs">
                     <p><input id="botao" type="button" value="Cadastrar" onclick="adicionar()">
                     </p>
                 </form>
@@ -63,6 +63,14 @@
                     
                 </tbody>
             </table>
+            <div id = "bloco">
+                <p class="faturamento">Faturamento:</p>
+                <p class="resultfat">R$0/27000</p>
+                <p class="porcentagem">Porcentagem:</p>
+                <p class="resultporcent">0%</p>
+                <p class="projetos">Projetos:</p>
+                <p class="resultproj">0/18</p>
+            </div>
         </div>
     </section>
     <script src="script.js"></script>
