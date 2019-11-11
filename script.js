@@ -55,18 +55,7 @@ function adicionar() {
     } else {
         projetos.push(projeto);
 
-        let btn1 = document.createElement('input');
-        btn1.setAttribute('id', 'botao1');
-        btn1.setAttribute('type', 'button');
-        btn1.setAttribute('value', 'editar');
-        btn1.setAttribute('onclick', 'editar()');
-        let btn2 = document.createElement('input');
-        btn2.setAttribute('id', 'botao2');
-        btn2.setAttribute('type', 'button');
-        btn2.setAttribute('value', 'excluir');
-        btn2.setAttribute('onclick', 'excluir()');
-
-        let inserir = infos.insertRow();
+        var inserir = infos.insertRow();
         let cel1 = inserir.insertCell();
         let cel2 = inserir.insertCell();
         let cel3 = inserir.insertCell();
@@ -80,8 +69,20 @@ function adicionar() {
         cel3.innerHTML = `${projeto.valor}`;
         cel4.innerHTML = `${projeto.dias}`;
         cel5.innerHTML = `${projeto.devs}`;
+
+        let btn1 = document.createElement('input');
+        btn1.setAttribute('id', 'botao1');
+        btn1.setAttribute('type', 'button');
+        btn1.setAttribute('value', 'editar');
+        btn1.setAttribute('onclick', 'editar()');
+        let btn2 = document.createElement('input');
+        btn2.setAttribute('id', 'botao2');
+        btn2.setAttribute('type', 'button');
+        btn2.setAttribute('value', 'excluir');
+        btn2.setAttribute('onclick', 'excluir()');
         cel6.appendChild(btn1);
         cel6.appendChild(btn2);
+
 
         var resusoma = soma(valor.value);
         resultfat.innerHTML = `R$ ${resusoma.toFixed(1)}/27000`;
@@ -110,4 +111,8 @@ function porcent() {
     return resu;
 }
 function excluir() {
+    for (var i = 0; i <= projetos.length; i++) {
+            delete projetos[i];
+    }
 }
+
