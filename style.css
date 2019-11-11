@@ -81,8 +81,8 @@ h1{
     text-transform: uppercase;
 }
 #botao:hover{
-    background: rgb(98, 98, 255);
-    color: white;
+    background: white;
+    color: rgb(0, 0, 53);
 }
 ::-webkit-input-placeholder {
     font-size: 16px;

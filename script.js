@@ -6,8 +6,9 @@ var devs = window.document.getElementById('devs');
 var infos = window.document.getElementById('infos');
 var resultfat = window.document.getElementsByClassName('resultfat')[0];
 var resultproj = window.document.getElementsByClassName('resultproj')[0];
-var resultporcent = window.document.getElementsByClassName('resultporcent');
+var resultporcent = window.document.getElementsByClassName('resultporcent')[0];
 var result = 0;
+var resu = 0;
 let projetos = [];
 function coletaInfo() {
     let nome = window.document.getElementById('projeto').value;
@@ -72,6 +73,7 @@ function adicionar() {
         let cel4 = inserir.insertCell();
         let cel5 = inserir.insertCell();
         let cel6 = inserir.insertCell();
+        console.log(projetos)
 
         cel1.innerHTML = `${projeto.nome}`;
         cel2.innerHTML = `${projeto.stacks}`;
@@ -82,27 +84,30 @@ function adicionar() {
         cel6.appendChild(btn2);
 
         var resusoma = soma(valor.value);
-        var resuporcent = porcent(resusoma.value);
-        resultfat.innerHTML = `${resusoma}/27000`;
-        resultproj.innerHTML = `${projetos.length}/18`
-        resultprocent.innerHTML = `${resuporcent}`;
+        resultfat.innerHTML = `R$ ${resusoma.toFixed(1)}/27000`;
+        resultproj.innerHTML = `${projetos.length}/18`;
+        var resuporcent = porcent();
+        resultporcent.innerHTML = `${resuporcent.toFixed(1)}%`;
 
-        nome.value = '';
-        stacks.value = '';
-        valor.value = '';
-        dias.value = '';
-        devs.value = '';
-        nome.focus()
+        var l = limpar();
     }
+}
+function limpar() {
+    nome.value = '';
+    stacks.value = '';
+    valor.value = '';
+    dias.value = '';
+    devs.value = '';
+    nome.focus()
 }
 function soma(n1) {
     result += Number(n1);
     return result;
 }
-function porcent(n){
-    result += (n*100)/27000;
-    return result;
+function porcent() {
+    resu += result
+    resu = (resu * 100) / 27000;
+    return resu;
 }
-function editar() {
-
+function excluir() {
 }
