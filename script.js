@@ -11,6 +11,8 @@ var result = 0;
 var resu = 0;
 var insert = [];
 let projetos = [];
+var table = window.document.getElementById('infos');
+let selectRow = null;
 function coletaInfo() {
     let nome = window.document.getElementById('projeto').value;
     let stacks = window.document.getElementById('stacks').value;
@@ -83,14 +85,13 @@ function adicionar() {
         cel6.appendChild(btn1);
         cel6.appendChild(btn2);
 
-
         var resusoma = soma(valor.value);
         resultfat.innerHTML = `R$ ${resusoma.toFixed(1)}/27000`;
         resultproj.innerHTML = `${projetos.length}/18`;
         var resuporcent = porcent();
         resultporcent.innerHTML = `${resuporcent.toFixed(2)}%`;
 
-        var l = limpar();
+        limpar();
     }
 }
 function limpar() {
@@ -111,5 +112,13 @@ function porcent() {
     return resu;
 }
 function excluir() {
+    var confirm = window.confirm('Tem certeza que deseja excluir esse projeto?');
+    if(confirm){
+        selectrow = botao2.parentElement.parentElement;
+        console.log(selectrow);
+        console.log(projetos);
+        let deletar = selectrow;
+        deletar.parentNode.removeChild(deletar);
+    }
 }
 
