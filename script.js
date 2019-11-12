@@ -9,6 +9,7 @@ var resultproj = window.document.getElementsByClassName('resultproj')[0];
 var resultporcent = window.document.getElementsByClassName('resultporcent')[0];
 var result = 0;
 var resu = 0;
+var insert = [];
 let projetos = [];
 function coletaInfo() {
     let nome = window.document.getElementById('projeto').value;
@@ -55,14 +56,13 @@ function adicionar() {
     } else {
         projetos.push(projeto);
 
-        var inserir = infos.insertRow();
+        let inserir = infos.insertRow();
         let cel1 = inserir.insertCell();
         let cel2 = inserir.insertCell();
         let cel3 = inserir.insertCell();
         let cel4 = inserir.insertCell();
         let cel5 = inserir.insertCell();
         let cel6 = inserir.insertCell();
-        console.log(projetos)
 
         cel1.innerHTML = `${projeto.nome}`;
         cel2.innerHTML = `${projeto.stacks}`;
@@ -88,7 +88,7 @@ function adicionar() {
         resultfat.innerHTML = `R$ ${resusoma.toFixed(1)}/27000`;
         resultproj.innerHTML = `${projetos.length}/18`;
         var resuporcent = porcent();
-        resultporcent.innerHTML = `${resuporcent.toFixed(1)}%`;
+        resultporcent.innerHTML = `${resuporcent.toFixed(2)}%`;
 
         var l = limpar();
     }
@@ -106,13 +106,10 @@ function soma(n1) {
     return result;
 }
 function porcent() {
-    resu += result
+    resu += result;
     resu = (resu * 100) / 27000;
     return resu;
 }
 function excluir() {
-    for (var i = 0; i <= projetos.length; i++) {
-            delete projetos[i];
-    }
 }
 
