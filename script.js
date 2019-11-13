@@ -81,7 +81,7 @@ function adicionar() {
         btn2.setAttribute('id', 'botao2');
         btn2.setAttribute('type', 'button');
         btn2.setAttribute('value', 'excluir');
-        btn2.setAttribute('onclick', 'excluir()');
+        btn2.setAttribute('onclick', 'excluir(this)');
         cel6.appendChild(btn1);
         cel6.appendChild(btn2);
 
@@ -90,7 +90,7 @@ function adicionar() {
         resultproj.innerHTML = `${projetos.length}/18`;
         var resuporcent = porcent();
         resultporcent.innerHTML = `${resuporcent.toFixed(2)}%`;
-
+        console.log(projetos);
         limpar();
     }
 }
@@ -111,12 +111,10 @@ function porcent() {
     resu = (resu * 100) / 27000;
     return resu;
 }
-function excluir() {
+function excluir(bot) {
     var confirm = window.confirm('Tem certeza que deseja excluir esse projeto?');
     if(confirm){
-        selectrow = botao2.parentElement.parentElement;
-        console.log(selectrow);
-        console.log(projetos);
+        selectrow = bot.parentElement.parentElement;
         let deletar = selectrow;
         deletar.parentNode.removeChild(deletar);
     }
