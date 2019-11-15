@@ -79,6 +79,8 @@ h1{
     background: rgb(0, 0, 53);
     color: white;
     text-transform: uppercase;
+    font-weight: 600!important;
+    display: block;
 }
 #botao:hover{
     background: white;
@@ -117,9 +119,18 @@ td:nth-child(6n) {
     background: rgb(255, 189, 7);
     color: black;
 }
+#botao1:hover {
+    padding-left: 22px;
+    background: rgb(153, 113, 1);
+    color: rgb(255, 255, 255);
+}
 #botao2{
     background: rgb(253, 61, 61);
     color: black;
+}
+#botao2:hover {
+    background: rgb(160, 0, 0);
+    color: rgb(255, 255, 255);
 }
 #tab2{
     float: right;
@@ -149,7 +160,6 @@ tr p, td p{
     font-weight: 600;
 }
 #bloco{
-    width: 90%;
     border-radius: 10px;
     background: white;
     display: flex;
@@ -157,6 +167,31 @@ tr p, td p{
     margin: 10% auto;
 }
 .faturamento, .porcentagem, .projetos{
-    margin-right: 5px;
-    margin-left: 35px;
+    margin-right: 1%;
+    margin-left: 8.5%;
+}
+#botao3, #botao4{
+    padding: 10px 20px;
+    margin-bottom: 16px;
+    margin-right: 16px;
+    border-radius: 8px;
+    font-size: 16px;
+    font-family: 'Montserrat', Helvetica, Arial, sans-serif;
+    border: none;
+    background: rgb(255, 189, 7);
+    color: black;
+    text-transform: uppercase;
+    font-weight: 600!important;
+}
+#botao4{
+    background: rgb(253, 61, 61);
+    color: black;
+}
+#botao4:hover{
+    background: rgb(160, 0, 0);
+    color: rgb(255, 255, 255);
+}
+#botao3:hover{
+    background: rgb(153, 113, 1);
+    color: rgb(255, 255, 255);
 }
