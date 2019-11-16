@@ -4,16 +4,13 @@ var valor = window.document.getElementById('valor');
 var dias = window.document.getElementById('dias');
 var devs = window.document.getElementById('devs');
 var infos = window.document.getElementById('infos');
-var form = window.document.getElementById('tab1');
-var table = window.document.getElementById('infos')
-var resultfat = window.document.getElementsByClassName('resultfat')[0];
-var resultproj = window.document.getElementsByClassName('resultproj')[0];
-var resultporcent = window.document.getElementsByClassName('resultporcent')[0];
-var result = 0;
-var resu = 0;
-var re = 0;
+var botaoadd = window.document.getElementById('botao');
 let selectRow = null;
 let selectv = null;
+var c = 0;
+var k = 0;
+var v2 = null;
+var v = null;
 function coletaInfo() {
     let nome = window.document.getElementById('projeto').value;
     let stacks = window.document.getElementById('stacks').value;
@@ -40,24 +37,27 @@ function verificar(projeto) {
         return false;
     }
 }
-function igual(target) {
-    return false;
-    //     if(projetos.length > 1) {
-    //         projetos.filter(projeto => {
-    //             if(projeto.name === target.name) {
-    //                 return true;
-    //             } else {
-    //                 return false;
-    //             }
-    //         });
-    //     }
+function igual(projeto) {
+    for (var i = 0; i < infos.rows.length; i++) {
+        if (projeto.nome == infos.rows[i].cells[0].innerText &&
+            projeto.stacks == infos.rows[i].cells[1].innerText &&
+            Number(projeto.valor) == Number(infos.rows[i].cells[2].innerText) &&
+            Number(projeto.dias) == Number(infos.rows[i].cells[3].innerText) &&
+            projeto.devs == infos.rows[i].cells[4].innerText) {
+            return true;
+        } else {
+            return false;
+        }
+    }
 }
 function adicionar() {
     let projeto = coletaInfo();
-    if (verificar(projeto) || igual(projeto)) {
-        window.alert('Para cadastrar é necessário que todos os campos sejam preenchidos!')
+    if (verificar(projeto)) {
+        window.alert('[ERRO] Para cadastrar é necessário que todos os campos sejam preenchidos!')
+    } if (igual(projeto)) {
+        window.alert('[ERRO] Projeto já cadastrado!')
     } else {
-
+        console.log(projeto);
         let inserir = infos.insertRow();
         let cel1 = inserir.insertCell();
         let cel2 = inserir.insertCell();
@@ -89,14 +89,17 @@ function adicionar() {
         soma();
     }
 }
-function soma(){
+function soma() {
     let total = 0;
     let porcentagem = 0;
-    for(let i=0; i<infos.rows.length; i++){
+    for (let i = 0; i < infos.rows.length; i++) {
         total += Number(infos.rows[i].cells[2].innerText);
         console.log(total);
         porcentagem += (total * 100) / 27000;
     }
+    var resultfat = window.document.getElementsByClassName('resultfat')[0];
+    var resultproj = window.document.getElementsByClassName('resultproj')[0];
+    var resultporcent = window.document.getElementsByClassName('resultporcent')[0];
     resultfat.innerHTML = `${total.toFixed(1)}/27000`;
     resultporcent.innerHTML = `${porcentagem.toFixed(2)}%`;
     resultproj.innerHTML = `${infos.rows.length}/18`
@@ -130,51 +133,69 @@ function editar(bot) {
     dias.value = selectcel4;
     devs.value = selectcel5;
 
-    var botaoadd = window.document.getElementById('botao');
     botaoadd.style.display = "none";
 
-    let btn3 = document.createElement('input');
-    btn3.setAttribute('id', 'botao3');
-    btn3.setAttribute('type', 'button');
-    btn3.setAttribute('value', 'Concluir');
-    btn3.setAttribute('onclick', 'editarmsm(selectrow)');
-    form.appendChild(btn3);
-    let btn4 = document.createElement('input');
-    btn4.setAttribute('id', 'botao4');
-    btn4.setAttribute('type', 'button');
-    btn4.setAttribute('value', 'Cancelar');
-    btn4.setAttribute('onclick', 'cancelar()');
-    form.appendChild(btn4);
+    botao();
+    botao2();
+}
+function botao() {
+    c++;
+    if (c == 1) {
+        console.log(c);
+        let btn3 = document.createElement('input');
+        var form = window.document.getElementById('tab1');
+        btn3.setAttribute('id', 'botao3');
+        btn3.setAttribute('type', 'button');
+        btn3.setAttribute('value', 'Concluir');
+        btn3.setAttribute('onclick', 'editarmsm(selectrow)');
+        form.appendChild(btn3);
+        v = window.document.getElementById('botao3');
+    } else {
+        v.style.display = "inline-block";
+    }
+}
+function botao2() {
+    k++;
+    if (k == 1) {
+        let btn4 = document.createElement('input');
+        var form = window.document.getElementById('tab1');
+        btn4.setAttribute('id', 'botao4');
+        btn4.setAttribute('type', 'button');
+        btn4.setAttribute('value', 'Cancelar');
+        btn4.setAttribute('onclick', 'cancelar()');
+        form.appendChild(btn4);
+        v2 = window.document.getElementById('botao4');
+    } else {
+        v2.style.display = "inline-block";
+    }
 }
 function editarmsm(r) {
-    if(nome.value == '' || stacks.value == '' || valor.value == '' || dias.value == '' || devs.value == ''){
+    if (nome.value == '' || stacks.value == '' || valor.value == '' || dias.value == '' || devs.value == '') {
         window.alert('Preencha todos os campos para poder editar!')
-    }else{
-    selectcel1 = r.cells[0];
-    selectcel2 = r.cells[1];
-    selectcel3 = r.cells[2];
-    selectcel4 = r.cells[3];
-    selectcel5 = r.cells[4];
+    } else {
+        selectcel1 = r.cells[0];
+        selectcel2 = r.cells[1];
+        selectcel3 = r.cells[2];
+        selectcel4 = r.cells[3];
+        selectcel5 = r.cells[4];
 
-    selectcel1.innerHTML = `${nome.value}`;
-    selectcel2.innerHTML = `${stacks.value}`;
-    selectcel3.innerHTML = `${valor.value}`;
-    selectcel4.innerHTML = `${dias.value}`;
-    selectcel5.innerHTML = `${devs.value}`;
+        selectcel1.innerHTML = `${nome.value}`;
+        selectcel2.innerHTML = `${stacks.value}`;
+        selectcel3.innerHTML = `${valor.value}`;
+        selectcel4.innerHTML = `${dias.value}`;
+        selectcel5.innerHTML = `${devs.value}`;
 
-    limpar();
-    botao3.style.display = "none";
-    botao4.style.display = "none";
-    botao.style.display = "block";
-    soma();
+        v.style.display = "none";
+        v2.style.display = "none";
+        botaoadd.style.display = "block";
+
+        soma();
+        limpar();
     }
 }
 function cancelar() {
-    btn3= window.document.getElementById('botao3');
-    btn4= window.document.getElementById('botao4');
-    btn= window.document.getElementById('botao');
-    btn3.style.display = "none";
-    btn4.style.display = "none";
-    btn.style.display = "block";
     limpar();
+    v.style.display = "none";
+    v2.style.display = "none";
+    botaoadd.style.display = "block";
 }
