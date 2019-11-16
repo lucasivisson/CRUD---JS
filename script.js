@@ -140,7 +140,7 @@ function botao() {
     if (c == 1) {
         console.log(c);
         let btn3 = document.createElement('input');
-        
+        var form = window.document.getElementById('tab1');
         btn3.setAttribute('id', 'botao3');
         btn3.setAttribute('type', 'button');
         btn3.setAttribute('value', 'Concluir');
