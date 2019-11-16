@@ -169,9 +169,12 @@ function editarmsm(r) {
     soma();
     }
 }
-function cancelar(btn3, btn4) {
-    botao3.style.display = "none";
-    botao4.style.display = "none";
-    botao.style.display = "block";
+function cancelar() {
+    btn3= window.document.getElementById('botao3');
+    btn4= window.document.getElementById('botao4');
+    btn= window.document.getElementById('botao');
+    btn3.style.display = "none";
+    btn4.style.display = "none";
+    btn.style.display = "block";
     limpar();
 }
