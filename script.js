@@ -86,7 +86,20 @@ function adicionar() {
         cel6.appendChild(btn2);
 
         limpar();
+        soma();
     }
+}
+function soma(){
+    let total = 0;
+    let porcentagem = 0;
+    for(let i=0; i<infos.rows.length; i++){
+        total += Number(infos.rows[i].cells[2].innerText);
+        console.log(total);
+        porcentagem += (total * 100) / 27000;
+    }
+    resultfat.innerHTML = `${total.toFixed(1)}/27000`;
+    resultporcent.innerHTML = `${porcentagem.toFixed(2)}%`;
+    resultproj.innerHTML = `${infos.rows.length}/18`
 }
 function limpar() {
     nome.value = '';
@@ -101,6 +114,7 @@ function excluir(bot) {
     if (confirm) {
         selectrow = bot.parentElement.parentElement;
         selectrow.parentNode.removeChild(selectrow);
+        soma();
     }
 }
 function editar(bot) {
@@ -131,9 +145,11 @@ function editar(bot) {
     btn4.setAttribute('value', 'Cancelar');
     btn4.setAttribute('onclick', 'cancelar()');
     form.appendChild(btn4);
-
 }
 function editarmsm(r) {
+    if(nome.value == '' || stacks.value == '' || valor.value == '' || dias.value == '' || devs.value == ''){
+        window.alert('Preencha todos os campos para poder editar!')
+    }else{
     selectcel1 = r.cells[0];
     selectcel2 = r.cells[1];
     selectcel3 = r.cells[2];
@@ -150,10 +166,12 @@ function editarmsm(r) {
     botao3.style.display = "none";
     botao4.style.display = "none";
     botao.style.display = "block";
+    soma();
+    }
 }
 function cancelar(btn3, btn4) {
-    limpar();
     botao3.style.display = "none";
     botao4.style.display = "none";
     botao.style.display = "block";
+    limpar();
 }
