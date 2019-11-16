@@ -52,12 +52,9 @@ function igual(projeto) {
 }
 function adicionar() {
     let projeto = coletaInfo();
-    if (verificar(projeto)) {
-        window.alert('[ERRO] Para cadastrar é necessário que todos os campos sejam preenchidos!')
-    } if (igual(projeto)) {
-        window.alert('[ERRO] Projeto já cadastrado!')
+    if (verificar(projeto) || igual(projeto)) {
+        window.alert('[ERRO] Projeto já existente ou algum campo não foi preenchido!');
     } else {
-        console.log(projeto);
         let inserir = infos.insertRow();
         let cel1 = inserir.insertCell();
         let cel2 = inserir.insertCell();
@@ -143,7 +140,7 @@ function botao() {
     if (c == 1) {
         console.log(c);
         let btn3 = document.createElement('input');
-        var form = window.document.getElementById('tab1');
+        
         btn3.setAttribute('id', 'botao3');
         btn3.setAttribute('type', 'button');
         btn3.setAttribute('value', 'Concluir');
